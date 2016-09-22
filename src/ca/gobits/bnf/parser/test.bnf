@@ -1,0 +1,8 @@
+﻿#ABNF 1.0 UTF-8;
+business telephone;
+root main;
+#ABNF HEAD-END;
+$telephone_action1{operation%CALL}=找 |呼叫;
+$telephone_action2{operation%CALL}=打|打电话;
+$contact{contact.name}=($_ti_ch_<2-10>);
+$main{biz:telephone}=[木嘟嘟] [我 |帮我] $telephone_action1 $contact | [木嘟嘟] [帮我] $telephone_action2 给 $contact|[木嘟嘟]给 $contact $telephone_action2;

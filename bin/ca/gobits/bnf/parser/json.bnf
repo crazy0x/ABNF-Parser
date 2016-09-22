@@ -1,0 +1,30 @@
+// json grammar
+
+@start        = Empty | array | object;
+
+object        = openCurly objectContent closeCurly;
+objectContent = Empty | actualObject;
+actualObject  = property commaProperty*;
+property      = propertyName colon value;
+commaProperty = comma property;
+propertyName  = QuotedString;
+
+array         = openBracket arrayContent closeBracket;
+arrayContent  = Empty | actualArray;
+actualArray   = value commaValue*;
+commaValue    = comma value;
+
+value         = null | [true | false] | array | object | number | string;
+
+string        = QuotedString;
+number        = Number;
+null          = 'null';
+true          = 'true';
+false         = 'false';
+
+openCurly     = '{';
+closeCurly    = '}';
+openBracket   = '[';
+closeBracket  = ']';
+comma         = ',';
+colon         = ':';
